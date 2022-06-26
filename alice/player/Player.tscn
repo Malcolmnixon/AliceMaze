@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/godot-xr-tools/assets/RightHand.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/godot-xr-tools/assets/LeftHand.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/godot-xr-tools/functions/Function_Direct_movement.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/godot-xr-tools/functions/Function_Turn_movement.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/godot-xr-tools/assets/PlayerBody.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/godot-xr-tools/functions/Function_Pickup.tscn" type="PackedScene" id=8]
+[ext_resource path="res://alice/player/Alice.gd" type="Script" id=9]
+
+[sub_resource type="SphereShape" id=1]
+radius = 0.1
+
+[node name="Player" instance=ExtResource( 1 )]
+near_z = 0.01
+far_z = 100.0
+
+[node name="AreaDetect" type="Area" parent="ARVRCamera" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ARVRCamera/AreaDetect" index="0"]
+shape = SubResource( 1 )
+
+[node name="LeftHand" parent="LeftHandController" index="0" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, -0.05, 0.15 )
+
+[node name="Function_Direct_movement" parent="LeftHandController" index="1" instance=ExtResource( 4 )]
+max_speed = 3.0
+strafe = true
+
+[node name="Function_Pickup" parent="LeftHandController" index="2" instance=ExtResource( 8 )]
+
+[node name="RightHand" parent="RightHandController" index="0" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, -0.05, 0.15 )
+
+[node name="Function_Direct_movement" parent="RightHandController" index="1" instance=ExtResource( 4 )]
+max_speed = 3.0
+
+[node name="Function_Turn_movement" parent="RightHandController" index="2" instance=ExtResource( 5 )]
+smooth_rotation = true
+
+[node name="Function_Pickup" parent="RightHandController" index="3" instance=ExtResource( 8 )]
+
+[node name="PlayerBody" parent="." index="4" instance=ExtResource( 6 )]
+player_radius = 0.3
+
+[node name="Alice" type="Node" parent="." index="5"]
+script = ExtResource( 9 )
+
+[node name="Tween" type="Tween" parent="Alice" index="0"]
+playback_process_mode = 0
+
+[connection signal="area_entered" from="ARVRCamera/AreaDetect" to="Alice" method="_on_AreaDetect_area_entered"]
+[connection signal="has_picked_up" from="LeftHandController/Function_Pickup" to="Alice" method="_on_Function_Pickup_has_picked_up"]
+[connection signal="has_picked_up" from="RightHandController/Function_Pickup" to="Alice" method="_on_Function_Pickup_has_picked_up"]
+[connection signal="tween_all_completed" from="Alice/Tween" to="Alice" method="_on_size_completed"]

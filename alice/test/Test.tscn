@@ -1,0 +1,68 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/wahooney.itch.io/white_grid.png" type="Texture" id=1]
+[ext_resource path="res://alice/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://alice/sizers/Shrink.tscn" type="PackedScene" id=3]
+[ext_resource path="res://alice/sizers/Grow.tscn" type="PackedScene" id=4]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 40, 40 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.25098, 0.752941, 0.25098, 1 )
+albedo_texture = ExtResource( 1 )
+uv1_triplanar = true
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 20, 1, 20 )
+
+[sub_resource type="CylinderShape" id=4]
+height = 6.0
+
+[sub_resource type="CylinderMesh" id=5]
+height = 5.0
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+albedo_color = Color( 0.686275, 0.709804, 0.121569, 0.341176 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 1 )
+uv1_triplanar = true
+
+[node name="Test" type="Spatial"]
+
+[node name="Ground" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Ground"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ground"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+shape = SubResource( 3 )
+
+[node name="Grow" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.25, 0 )
+
+[node name="Shrink" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.25, 0 )
+
+[node name="Normal" type="Area" parent="." groups=["player_normal"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Normal"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Normal"]
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="CSGTorus" type="CSGTorus" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 2 )
+use_collision = true
+inner_radius = 1.0
+smooth_faces = false
+material = SubResource( 7 )
