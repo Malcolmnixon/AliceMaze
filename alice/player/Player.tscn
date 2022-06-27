@@ -16,6 +16,9 @@ radius = 0.1
 near_z = 0.01
 far_z = 100.0
 
+[node name="ARVRCamera" parent="." index="1"]
+near = 0.01
+
 [node name="AreaDetect" type="Area" parent="ARVRCamera" index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="ARVRCamera/AreaDetect" index="0"]
@@ -29,6 +32,8 @@ max_speed = 3.0
 strafe = true
 
 [node name="Function_Pickup" parent="LeftHandController" index="2" instance=ExtResource( 8 )]
+ranged_distance = 4.0
+ranged_angle = 10.0
 
 [node name="RightHand" parent="RightHandController" index="0" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, -0.05, 0.15 )
@@ -40,6 +45,8 @@ max_speed = 3.0
 smooth_rotation = true
 
 [node name="Function_Pickup" parent="RightHandController" index="3" instance=ExtResource( 8 )]
+ranged_distance = 4.0
+ranged_angle = 10.0
 
 [node name="PlayerBody" parent="." index="4" instance=ExtResource( 6 )]
 player_radius = 0.3
