@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Bottle.glb-12546552702d9b7b41d2a4a26baadeb7.scn"
+path="res://.import/FenceArch.glb-ecddbf32e0df32016a14acf211f587d7.scn"
 
 [deps]
 
-source_file="res://alice/objects/meshes/Bottle.glb"
-dest_files=[ "res://.import/Bottle.glb-12546552702d9b7b41d2a4a26baadeb7.scn" ]
+source_file="res://alice/objects/meshes/FenceArch.glb"
+dest_files=[ "res://.import/FenceArch.glb-ecddbf32e0df32016a14acf211f587d7.scn" ]
 
 [params]
 

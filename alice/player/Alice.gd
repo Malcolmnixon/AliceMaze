@@ -28,8 +28,8 @@ func size_player(var target: float):
 	_target_size = target
 	
 	# Ensure player isn't holding anything
-	_pickup_left.drop_object()
-	_pickup_right.drop_object()
+	#_pickup_left.drop_object()
+	#_pickup_right.drop_object()
 
 	# TODO: Disable pickup
 	
@@ -61,13 +61,13 @@ func _on_size_completed():
 
 func _on_Function_Pickup_has_picked_up(what: XRToolsPickable):
 	if what.is_in_group("player_grow"):
-		#what.drop_and_free()
+		what.drop_and_free()
 		size_player(SIZE_LARGE)
 	elif what.is_in_group("player_shrink"):
-		#what.drop_and_free()
+		what.drop_and_free()
 		size_player(SIZE_SMALL)
 	elif what.is_in_group("player_normal"):
-		#what.drop_and_free()
+		what.drop_and_free()
 		size_player(SIZE_NORMAL)
 
 func _on_AreaDetect_area_entered(area: Area):

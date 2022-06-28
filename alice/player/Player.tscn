@@ -32,8 +32,10 @@ max_speed = 3.0
 strafe = true
 
 [node name="Function_Pickup" parent="LeftHandController" index="2" instance=ExtResource( 8 )]
-ranged_distance = 4.0
+grab_collision_mask = 256
+ranged_distance = 1.0
 ranged_angle = 10.0
+ranged_collision_mask = 256
 
 [node name="RightHand" parent="RightHandController" index="0" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, -0.05, 0.15 )
@@ -45,11 +47,14 @@ max_speed = 3.0
 smooth_rotation = true
 
 [node name="Function_Pickup" parent="RightHandController" index="3" instance=ExtResource( 8 )]
-ranged_distance = 4.0
+grab_collision_mask = 256
+ranged_distance = 1.0
 ranged_angle = 10.0
+ranged_collision_mask = 256
 
 [node name="PlayerBody" parent="." index="4" instance=ExtResource( 6 )]
 player_radius = 0.3
+collision_mask = 1
 
 [node name="Alice" type="Node" parent="." index="5"]
 script = ExtResource( 9 )

@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Bottle.glb-12546552702d9b7b41d2a4a26baadeb7.scn"
+path="res://.import/TeaCup.glb-d2d48bd271c6be261f727a3f0ceda050.scn"
 
 [deps]
 
-source_file="res://alice/objects/meshes/Bottle.glb"
-dest_files=[ "res://.import/Bottle.glb-12546552702d9b7b41d2a4a26baadeb7.scn" ]
+source_file="res://alice/objects/meshes/TeaCup.glb"
+dest_files=[ "res://.import/TeaCup.glb-d2d48bd271c6be261f727a3f0ceda050.scn" ]
 
 [params]
 
