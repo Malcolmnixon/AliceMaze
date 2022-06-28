@@ -232,6 +232,9 @@ transform = Transform( 0.000314115, 0, 1, 0, 1, 0, -1, 0, 0.000314115, -9, 0, 4 
 [node name="Fence45" parent="Fences" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, -0.000314159, 0, 1, 0, 0.000314159, 0, 1, -12, 0, 1 )
 
+[node name="Fence46" parent="Fences" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, -0.000314159, 0, 1, 0, 0.000314159, 0, 1, -12, -4, 7 )
+
 [node name="FenceCorner43" parent="Fences" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 1 )
 
@@ -298,7 +301,10 @@ transform = Transform( 0.23482, 0, -0.972039, 0, 1, 0, 0.972039, 0, 0.23482, 11.
 transform = Transform( -0.470331, 0.309429, -0.826464, 0.279105, 0.940598, 0.193326, 0.837191, -0.139743, -0.528756, 6.64306, 0.481746, 3.19534 )
 
 [node name="Hat15X" parent="Objects" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.314909, 1.88485, 4.23423 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.314909, 1.88485, 5.23423 )
+
+[node name="Hat15X2" parent="Objects" instance=ExtResource( 6 )]
+transform = Transform( 0.966725, -0.247993, 0.0627841, 0.254449, 0.906799, -0.33611, 0.0264204, 0.340902, 0.939728, -12.4173, 2.79957, 9.54626 )
 
 [node name="TeaCup30X" parent="Objects" instance=ExtResource( 10 )]
 transform = Transform( 0.817286, -7.14494e-08, 0.576233, -8.74228e-08, -1, 0, 0.576233, -5.03758e-08, -0.817286, -6.73767, 0.301367, 15.2649 )

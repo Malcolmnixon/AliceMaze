@@ -36,7 +36,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.3986, 0.144593, 17.4014 )
 
 [node name="GrowCake" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.30921, 0.119306, 2.65629 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.69079, 0.119306, 3.65629 )
 
 [node name="NormalArea" type="Area" parent="." groups=["player_normal"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, 4 )
@@ -45,13 +45,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, 4 )
 shape = SubResource( 10 )
 
 [node name="NormalArea2" type="Area" parent="." groups=["player_normal"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.5, 10 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.5, 16 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NormalArea2"]
 shape = SubResource( 10 )
 
 [node name="ShrinkBottle2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71133, 3.80648, 5.12536 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71133, 3.80648, 6.12536 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.84888, -0.443159, 0.288121, 0, 0.545078, 0.838385, -0.528587, -0.711688, 0.462706, 0, 6.94242, 0 )
