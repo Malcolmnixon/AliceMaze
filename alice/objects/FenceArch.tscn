@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://alice/objects/materials/fencematerial.tres" type="Material" id=1]
+[ext_resource path="res://alice/objects/meshes/FenceArch.glb" type="PackedScene" id=2]
+
+[node name="FenceArch" instance=ExtResource( 2 )]
+
+[node name="FenceArch" parent="." index="0"]
+material/0 = ExtResource( 1 )

@@ -14,7 +14,7 @@ radius = 0.1
 
 [node name="Player" instance=ExtResource( 1 )]
 near_z = 0.01
-far_z = 100.0
+far_z = 40.0
 
 [node name="ARVRCamera" parent="." index="1"]
 near = 0.01
@@ -34,7 +34,7 @@ strafe = true
 [node name="Function_Pickup" parent="LeftHandController" index="2" instance=ExtResource( 8 )]
 grab_collision_mask = 256
 ranged_distance = 1.0
-ranged_angle = 10.0
+ranged_angle = 20.0
 ranged_collision_mask = 256
 
 [node name="RightHand" parent="RightHandController" index="0" instance=ExtResource( 2 )]
@@ -49,7 +49,7 @@ smooth_rotation = true
 [node name="Function_Pickup" parent="RightHandController" index="3" instance=ExtResource( 8 )]
 grab_collision_mask = 256
 ranged_distance = 1.0
-ranged_angle = 10.0
+ranged_angle = 20.0
 ranged_collision_mask = 256
 
 [node name="PlayerBody" parent="." index="4" instance=ExtResource( 6 )]
