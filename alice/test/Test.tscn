@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://alice/maze/Maze.tscn" type="PackedScene" id=1]
 [ext_resource path="res://alice/player/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://alice/test/Test.lmbake" type="BakedLightmapData" id=5]
 [ext_resource path="res://assets/ambientcg.com/SkyOnlyHDRI001_1K-HDR/SkyOnlyHDRI001_1K-HDR.exr" type="Texture" id=6]
 [ext_resource path="res://assets/freepd.com/Brewing Potions.mp3" type="AudioStream" id=7]
+[ext_resource path="res://alice/objects/Gate.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/godot-xr-tools/objects/Snap_Zone.tscn" type="PackedScene" id=9]
+[ext_resource path="res://alice/test/Test.gd" type="Script" id=10]
+[ext_resource path="res://alice/objects/GrabHat.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/freesound.org/171671__leszek-szary__success-1.mp3" type="AudioStream" id=12]
 
 [sub_resource type="PanoramaSky" id=8]
 panorama = ExtResource( 6 )
@@ -22,7 +27,145 @@ ambient_light_sky_contribution = 0.0
 [sub_resource type="BoxShape" id=10]
 extents = Vector3( 2.5, 2.5, 2.5 )
 
+[sub_resource type="Animation" id=13]
+resource_name = "Open"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("GateAnimation/LeftGate:rotation_degrees:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("GateAnimation/LeftGate:rotation_degrees:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 90, -0.25, 0, 0.25, 0, 180, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("GateAnimation/LeftGate:rotation_degrees:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("GateAnimation/RightGate:rotation_degrees:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("GateAnimation/RightGate:rotation_degrees:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -90, -0.25, 0, 0.25, 0, -180, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("GateAnimation/RightGate:rotation_degrees:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("GateAnimation/LeftGate:rotation_degrees:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("GateAnimation/LeftGate:rotation_degrees:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 90, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("GateAnimation/LeftGate:rotation_degrees:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("GateAnimation/RightGate:rotation_degrees:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("GateAnimation/RightGate:rotation_degrees:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -90, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("GateAnimation/RightGate:rotation_degrees:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="SphereMesh" id=11]
+radius = 0.05
+height = 0.1
+radial_segments = 12
+rings = 6
+
+[sub_resource type="SpatialMaterial" id=12]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 1, 0, 0, 0.25098 )
+
 [node name="Test" type="Spatial"]
+script = ExtResource( 10 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 9 )
@@ -50,6 +193,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.5, 16 )
 [node name="CollisionShape" type="CollisionShape" parent="NormalArea2"]
 shape = SubResource( 10 )
 
+[node name="NormalArea3" type="Area" parent="." groups=["player_normal"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.5, -15 )
+
+[node name="CollisionShape" type="CollisionShape" parent="NormalArea3"]
+shape = SubResource( 10 )
+
 [node name="ShrinkBottle2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71133, 3.80648, 6.12536 )
 
@@ -68,3 +217,53 @@ light_data = ExtResource( 5 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
+
+[node name="GateAnimation" type="AnimationPlayer" parent="."]
+anims/Open = SubResource( 13 )
+anims/RESET = SubResource( 14 )
+
+[node name="LeftGate" parent="GateAnimation" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.4, 0, -11 )
+
+[node name="RightGate" parent="GateAnimation" instance=ExtResource( 8 )]
+transform = Transform( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -3.6, 0, -11 )
+
+[node name="LeftHatSnapZone" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3.7, -9 )
+snap_require = "hat"
+
+[node name="Target" type="MeshInstance" parent="LeftHatSnapZone"]
+mesh = SubResource( 11 )
+material/0 = SubResource( 12 )
+
+[node name="RightHatSnapZone" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3.7, -9 )
+snap_require = "hat"
+
+[node name="Target" type="MeshInstance" parent="RightHatSnapZone"]
+mesh = SubResource( 11 )
+skeleton = NodePath("../../LeftHatSnapZone")
+material/0 = SubResource( 12 )
+
+[node name="GrabHat" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0 )
+
+[node name="GrabHat2" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.125, 0 )
+
+[node name="GrowCake2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64631, 0.0120628, -0.475186 )
+
+[node name="VictoryArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2.5, -20 )
+
+[node name="CollisionShape" type="CollisionShape" parent="VictoryArea"]
+shape = SubResource( 10 )
+
+[node name="VictoryStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[connection signal="has_picked_up" from="LeftHatSnapZone" to="." method="_on_SnapZone_has_picked_up"]
+[connection signal="has_picked_up" from="RightHatSnapZone" to="." method="_on_SnapZone_has_picked_up"]
+[connection signal="body_entered" from="VictoryArea" to="." method="_on_VictoryArea_body_entered"]
+[connection signal="finished" from="VictoryStreamPlayer" to="." method="_on_VictoryStreamPlayer_finished"]

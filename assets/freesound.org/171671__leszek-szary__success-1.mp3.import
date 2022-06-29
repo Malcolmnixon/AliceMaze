@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/171671__leszek-szary__success-1.mp3-61345191ef01ec3937e78e22a85bb9e7.mp3str"
+
+[deps]
+
+source_file="res://assets/freesound.org/171671__leszek-szary__success-1.mp3"
+dest_files=[ "res://.import/171671__leszek-szary__success-1.mp3-61345191ef01ec3937e78e22a85bb9e7.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
