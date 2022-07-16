@@ -226,7 +226,7 @@ anims/RESET = SubResource( 14 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.4, 0, -11 )
 
 [node name="RightGate" parent="GateAnimation" instance=ExtResource( 8 )]
-transform = Transform( 7.54979e-08, 0, -1, 0, 1, 0, 1, 0, 7.54979e-08, -3.6, 0, -11 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.6, 0, -11 )
 
 [node name="LeftHatSnapZone" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3.7, -9 )

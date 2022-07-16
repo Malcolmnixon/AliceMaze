@@ -52,8 +52,6 @@ func _on_size_player(var size: float):
 	ARVRServer.world_scale = size
 	_body.player_radius = 0.3 * size
 	_body.player_head_height = 0.1 * size
-	_body.player_height_min = 1.0 * size
-	_body.player_height_max = 2.2 * size
 
 func _on_size_completed():
 	# TODO: Enable pickup
