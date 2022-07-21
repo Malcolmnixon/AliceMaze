@@ -213,6 +213,7 @@ _global_script_class_icons={
 [application]
 
 config/name="AliceMaze"
+config/description="Alice Maze 0.0.1"
 run/main_scene="res://alice/test/Test.tscn"
 config/icon="res://icon.png"
 
