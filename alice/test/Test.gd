@@ -1,7 +1,7 @@
 extends Spatial
 
 
-func _on_SnapZone_has_picked_up(what):
+func _on_SnapZone_has_picked_up(_what):
 	if $LeftHatSnapZone.picked_up_object and $RightHatSnapZone.picked_up_object:
 		_open_gate()
 

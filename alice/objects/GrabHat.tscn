@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://addons/godot-xr-tools/objects/Object_pickable.gd" type="Script" id=1]
+[ext_resource path="res://addons/godot-xr-tools/objects/pickable.gd" type="Script" id=1]
 [ext_resource path="res://alice/objects/materials/hatmaterial.tres" type="Material" id=2]
 [ext_resource path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" type="PackedScene" id=3]
 

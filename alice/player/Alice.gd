@@ -9,9 +9,9 @@ const SIZE_SMALL := 0.3
 var _current_size := 1.0
 var _target_size := 1.0
 
-onready var _pickup_left : Function_Pickup = $"../LeftHandController/Function_Pickup"
-onready var _pickup_right : Function_Pickup = $"../RightHandController/Function_Pickup"
-onready var _body : PlayerBody = $"../PlayerBody"
+onready var _pickup_left : XRToolsFunctionPickup = $"../LeftHandController/Function_Pickup"
+onready var _pickup_right : XRToolsFunctionPickup = $"../RightHandController/Function_Pickup"
+onready var _body : XRToolsPlayerBody = $"../PlayerBody"
 
 
 # Called when the node enters the scene tree for the first time.

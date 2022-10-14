@@ -2,7 +2,7 @@
 
 [ext_resource path="res://alice/objects/materials/DrinkMe.png" type="Texture" id=1]
 [ext_resource path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" type="PackedScene" id=2]
-[ext_resource path="res://addons/godot-xr-tools/objects/Object_pickable.gd" type="Script" id=3]
+[ext_resource path="res://addons/godot-xr-tools/objects/pickable.gd" type="Script" id=3]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "bottle_Cylinder001"
