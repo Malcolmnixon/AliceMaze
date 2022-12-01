@@ -74,12 +74,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/overrides/ground_physics_settings.gd"
 }, {
-"base": "Reference",
+"base": "Spatial",
 "class": "XRToolsHand",
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/hands/hand.gd"
 }, {
-"base": "Reference",
+"base": "BoneAttachment",
 "class": "XRToolsHandPhysicsBone",
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/hands/hand_physics_bone.gd"
@@ -219,7 +219,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/functions/movement_wind.gd"
 }, {
-"base": "Reference",
+"base": "XRToolsHand",
 "class": "XRToolsPhysicsHand",
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/hands/physics_hand.gd"
@@ -229,7 +229,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/objects/pickable.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "XRToolsPlayerBody",
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/player/player_body.gd"
@@ -293,7 +293,7 @@ _global_script_class_icons={
 "XRToolsGrabPointSnap": "",
 "XRToolsGroundPhysics": "",
 "XRToolsGroundPhysicsSettings": "",
-"XRToolsHand": "",
+"XRToolsHand": "res://addons/godot-xr-tools/editor/icons/hand.svg",
 "XRToolsHandPhysicsBone": "",
 "XRToolsHandPoseArea": "res://addons/godot-xr-tools/editor/icons/hand.svg",
 "XRToolsHandPoseSettings": "res://addons/godot-xr-tools/editor/icons/hand.svg",
@@ -324,7 +324,7 @@ _global_script_class_icons={
 "XRToolsMovementWind": "",
 "XRToolsPhysicsHand": "",
 "XRToolsPickable": "",
-"XRToolsPlayerBody": "",
+"XRToolsPlayerBody": "res://addons/godot-xr-tools/editor/icons/body.svg",
 "XRToolsPoke": "",
 "XRToolsSceneBase": "",
 "XRToolsSnapZone": "",
@@ -339,7 +339,7 @@ _global_script_class_icons={
 [application]
 
 config/name="AliceMaze"
-config/description="Alice Maze 0.0.4"
+config/description="Alice Maze 0.0.5"
 run/main_scene="res://alice/test/Test.tscn"
 config/icon="res://icon.png"
 
