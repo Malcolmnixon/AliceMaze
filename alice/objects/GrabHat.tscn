@@ -1,8 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://addons/godot-xr-tools/objects/pickable.gd" type="Script" id=1]
 [ext_resource path="res://alice/objects/materials/hatmaterial.tres" type="Material" id=2]
 [ext_resource path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" type="Script" id=4]
+[ext_resource path="res://addons/godot-xr-tools/hands/animations/left/Hold.anim" type="Animation" id=5]
+[ext_resource path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/godot-xr-tools/hands/animations/right/Hold.anim" type="Animation" id=9]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Hat_Cylinder005"
@@ -22,11 +28,21 @@ surfaces/0 = {
 [sub_resource type="ConvexPolygonShape" id=2]
 points = PoolVector3Array( 0, -0.125, -0.18, 0, -0.120008, -0.18, 0.0350979, -0.125, -0.176547, -0.0351331, -0.125, -0.176547, -0.0351331, -0.120008, -0.176547, 0, 0.125, -0.114949, 0.0350979, -0.120008, -0.176547, 0.0688567, -0.125, -0.166327, -0.0688919, -0.125, -0.166327, -0.0219538, 0.125, -0.112729, -0.0688919, -0.120008, -0.166327, 0.0219186, 0.125, -0.112729, 0.0688567, -0.120008, -0.166327, 0.0999726, -0.125, -0.149695, -0.100008, -0.125, -0.149695, -0.0430619, 0.125, -0.10621, -0.100008, -0.120008, -0.149695, 0.0430266, 0.125, -0.10621, 0.0999726, -0.120008, -0.149695, 0.127247, -0.125, -0.127283, -0.127283, -0.125, -0.127283, -0.0625137, 0.125, -0.0955677, -0.127283, -0.120008, -0.127283, 0.0624785, 0.125, -0.0955677, 0.127247, -0.120008, -0.127283, 0.149659, -0.125, -0.100008, -0.149695, -0.125, -0.100008, -0.0795693, 0.125, -0.081296, -0.149695, -0.120008, -0.100008, 0.0795341, 0.125, -0.081296, 0.149659, -0.120008, -0.100008, 0.166292, -0.125, -0.0688919, -0.166327, -0.125, -0.0688919, -0.0935591, 0.125, -0.0638528, -0.166327, -0.120008, -0.0688919, 0.0935239, 0.125, -0.0638528, 0.166292, -0.120008, -0.0688919, 0.176511, -0.125, -0.0351331, -0.176547, -0.125, -0.0351331, -0.103955, 0.125, -0.0440133, -0.176547, -0.120008, -0.0351331, 0.103919, 0.125, -0.0440133, 0.176511, -0.120008, -0.0351331, 0.18, -0.125, 0, -0.18, -0.125, 0, -0.110368, 0.125, -0.0224472, -0.18, -0.120008, 0, 0.110333, 0.125, -0.0224472, 0.18, -0.120008, 0, 0.176511, -0.125, 0.0350979, -0.176547, -0.125, 0.0350979, -0.112518, 0.125, 0, -0.176547, -0.120008, 0.0350979, -0.110368, 0.125, 0.0224119, 0.112482, 0.125, 0, 0.176511, -0.120008, 0.0350979, 0.110333, 0.125, 0.0224119, 0.166292, -0.125, 0.0688567, -0.166327, -0.125, 0.0688567, -0.166327, -0.120008, 0.0688567, -0.103955, 0.125, 0.0439781, 0.103919, 0.125, 0.0439781, 0.166292, -0.120008, 0.0688567, 0.149659, -0.125, 0.0999726, -0.149695, -0.125, 0.0999726, -0.149695, -0.120008, 0.0999726, -0.0935591, 0.125, 0.0638175, 0.0935239, 0.125, 0.0638175, 0.149659, -0.120008, 0.0999726, 0.127247, -0.125, 0.127247, -0.127283, -0.125, 0.127247, -0.127283, -0.120008, 0.127247, -0.0795693, 0.125, 0.0812608, 0.0795341, 0.125, 0.0812608, 0.127247, -0.120008, 0.127247, 0.0999726, -0.125, 0.149659, -0.100008, -0.125, 0.149659, -0.100008, -0.120008, 0.149659, -0.0625137, 0.125, 0.0955325, 0.0624785, 0.125, 0.0955325, 0.0999726, -0.120008, 0.149659, 0.0688567, -0.125, 0.166292, -0.0688919, -0.125, 0.166292, -0.0688919, -0.120008, 0.166292, -0.0430619, 0.125, 0.106175, 0.0430266, 0.125, 0.106175, 0.0688567, -0.120008, 0.166292, 0.0350979, -0.125, 0.176511, -0.0351331, -0.125, 0.176511, -0.0351331, -0.120008, 0.176511, -0.0219538, 0.125, 0.112694, 0.0219186, 0.125, 0.112694, 0.0350979, -0.120008, 0.176511, -3.52412e-05, -0.125, 0.18, -3.52412e-05, -0.120008, 0.18, -3.52412e-05, 0.125, 0.114914 )
 
+[sub_resource type="Resource" id=3]
+script = ExtResource( 4 )
+open_pose = ExtResource( 5 )
+closed_pose = ExtResource( 5 )
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 4 )
+open_pose = ExtResource( 9 )
+closed_pose = ExtResource( 9 )
+
 [node name="GrabHat" type="RigidBody" groups=["hat"]]
 collision_layer = 256
 collision_mask = 257
 script = ExtResource( 1 )
-picked_up_layer = 256
+picked_up_layer = 65536
 
 [node name="Hat" type="MeshInstance" parent="."]
 generate_lightmap = false
@@ -38,4 +54,12 @@ shape = SubResource( 2 )
 
 [node name="XRTHighlightRing" parent="." instance=ExtResource( 3 )]
 
-[node name="PickupCenter" type="Spatial" parent="."]
+[node name="GrabPointHandLeft" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, -0.061, 0.17 )
+hand_pose = SubResource( 3 )
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 0, -0.061, 0.17 )
+hand_pose = SubResource( 4 )
+
+[node name="GrabPointSnap" parent="." instance=ExtResource( 7 )]

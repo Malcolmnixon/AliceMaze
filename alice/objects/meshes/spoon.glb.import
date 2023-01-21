@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Spoon.glb-eb037e4718983884f2d0714dc549f87f.scn"
+path="res://.import/spoon.glb-c8fc157eb9d9bcee8e3944ffeeab7d01.scn"
 
 [deps]
 
-source_file="res://alice/objects/meshes/Spoon.glb"
-dest_files=[ "res://.import/Spoon.glb-eb037e4718983884f2d0714dc549f87f.scn" ]
+source_file="res://alice/objects/meshes/spoon.glb"
+dest_files=[ "res://.import/spoon.glb-c8fc157eb9d9bcee8e3944ffeeab7d01.scn" ]
 
 [params]
 

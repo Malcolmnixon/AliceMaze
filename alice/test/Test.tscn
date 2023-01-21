@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://alice/maze/Maze.tscn" type="PackedScene" id=1]
 [ext_resource path="res://alice/player/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://alice/test/Test.gd" type="Script" id=10]
 [ext_resource path="res://alice/objects/GrabHat.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/freesound.org/171671__leszek-szary__success-1.mp3" type="AudioStream" id=12]
+[ext_resource path="res://addons/godot-xr-tools/xr/start_xr.tscn" type="PackedScene" id=13]
 
 [sub_resource type="PanoramaSky" id=8]
 panorama = ExtResource( 6 )
@@ -230,6 +231,8 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.6, 0
 
 [node name="LeftHatSnapZone" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 3.7, -9 )
+collision_layer = 256
+collision_mask = 65792
 snap_require = "hat"
 
 [node name="Target" type="MeshInstance" parent="LeftHatSnapZone"]
@@ -238,6 +241,8 @@ material/0 = SubResource( 12 )
 
 [node name="RightHatSnapZone" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 3.7, -9 )
+collision_layer = 256
+collision_mask = 65792
 snap_require = "hat"
 
 [node name="Target" type="MeshInstance" parent="RightHatSnapZone"]
@@ -262,6 +267,8 @@ shape = SubResource( 10 )
 
 [node name="VictoryStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+
+[node name="StartXR" parent="." instance=ExtResource( 13 )]
 
 [connection signal="has_picked_up" from="LeftHatSnapZone" to="." method="_on_SnapZone_has_picked_up"]
 [connection signal="has_picked_up" from="RightHatSnapZone" to="." method="_on_SnapZone_has_picked_up"]
