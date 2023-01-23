@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 
 func _on_SnapZone_has_picked_up(_what):
@@ -10,7 +10,7 @@ func _open_gate():
 	$GateAnimation.play("Open")
 
 
-func _on_VictoryArea_body_entered(body: PhysicsBody):
+func _on_VictoryArea_body_entered(body: PhysicsBody3D):
 	if body.is_in_group("player_body"):
 		$Player/PlayerBody.enabled = false
 		$VictoryStreamPlayer.play()

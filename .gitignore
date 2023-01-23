@@ -1,6 +1,17 @@
 
 # Godot-specific ignores
+*.o
+*.os
 .import/
+.godot/
+*.dblite
+*.exp
+*.lib
+*.obj
+*.TMP
+logs
+Thumbs.db
+
 export.cfg
 export_presets.cfg
 

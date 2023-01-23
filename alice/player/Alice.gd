@@ -9,9 +9,12 @@ const SIZE_SMALL := 0.3
 var _current_size := 1.0
 var _target_size := 1.0
 
-onready var _pickup_left : XRToolsFunctionPickup = $"../LeftHandController/Function_Pickup"
-onready var _pickup_right : XRToolsFunctionPickup = $"../RightHandController/Function_Pickup"
-onready var _body : XRToolsPlayerBody = $"../PlayerBody"
+@onready var _pickup_left : XRToolsFunctionPickup = $"../LeftHandController/Function_Pickup"
+@onready var _pickup_right : XRToolsFunctionPickup = $"../RightHandController/Function_Pickup"
+@onready var _body : XRToolsPlayerBody = $"../PlayerBody"
+
+
+var _tween : Tween
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +22,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-func size_player(var target: float):
+func size_player(target: float):
 	# Skip if already at (or sizing to) target
 	if target == _target_size:
 		return
@@ -34,22 +37,19 @@ func size_player(var target: float):
 	# TODO: Disable pickup
 	
 	# Resize the player
-	$Tween.stop_all()
-	$Tween.interpolate_method(
-		self, 
-		"_on_size_player",
-		_current_size,
-		target,
-		2.0,
-		1)
-	$Tween.start()
+	if _tween:
+		_tween.kill()
+	_tween = create_tween()
+	_tween.set_trans(Tween.TRANS_QUAD)
+	_tween.set_ease(Tween.EASE_IN_OUT)
+	_tween.tween_method(_on_size_player, _current_size, target, 2.0)
 
-func _on_size_player(var size: float):
+func _on_size_player(size: float):
 	# Update current size
 	_current_size = size
 
 	# Adjust the world scale
-	ARVRServer.world_scale = size
+	XRServer.world_scale = size
 	_body.player_radius = 0.3 * size
 	_body.player_head_height = 0.1 * size
 
@@ -68,7 +68,7 @@ func _on_Function_Pickup_has_picked_up(what: XRToolsPickable):
 		what.drop_and_free()
 		size_player(SIZE_NORMAL)
 
-func _on_AreaDetect_area_entered(area: Area):
+func _on_AreaDetect_area_entered(area: Area3D):
 	if area.is_in_group("player_grow"):
 		size_player(SIZE_LARGE)
 	elif area.is_in_group("player_shrink"):

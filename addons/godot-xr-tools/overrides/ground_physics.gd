@@ -1,4 +1,4 @@
-tool
+@tool
 class_name XRToolsGroundPhysics
 extends Node
 
@@ -13,13 +13,13 @@ extends Node
 ## enable the appropriate flags and provide new values.
 
 
-## XRToolsGroundPhysicsSettings to apply - can only be typed in Godot 4+
-export var physics : Resource
+## XRToolsGroundPhysicsSettings to apply
+@export var physics : XRToolsGroundPhysicsSettings
 
 
-# Add support for is_class on XRTools classes
-func is_class(name : String) -> bool:
-	return name == "XRToolsGroundPhysics" or .is_class(name)
+# Add support for is_xr_class on XRTools classes
+func is_xr_class(name : String) -> bool:
+	return name == "XRToolsGroundPhysics"
 
 
 # This method verifies the ground physics has a valid configuration.

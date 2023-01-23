@@ -1,8 +1,9 @@
 [remap]
 
-importer="texture_array"
-type="TextureArray"
-path="res://.import/Test.exr-4bf72258b99ab512faa73e7a1dd6b791.texarr"
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://bseurxbnol4vj"
+path="res://.godot/imported/Test.exr-4bf72258b99ab512faa73e7a1dd6b791.ctexarray"
 metadata={
 "vram_texture": false
 }
@@ -10,16 +11,16 @@ metadata={
 [deps]
 
 source_file="res://alice/test/Test.exr"
-dest_files=[ "res://.import/Test.exr-4bf72258b99ab512faa73e7a1dd6b791.texarr" ]
+dest_files=["res://.godot/imported/Test.exr-4bf72258b99ab512faa73e7a1dd6b791.ctexarray"]
 
 [params]
 
 compress/mode=0
-compress/no_bptc_if_rgb=false
-flags/repeat=false
-flags/filter=true
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/bptc_ldr=0
+compress/channel_pack=1
+mipmaps/generate=false
+mipmaps/limit=-1
 slices/horizontal=1
-slices/vertical=3
+slices/vertical=4

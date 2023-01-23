@@ -1,84 +1,72 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=3 uid="uid://bcchl2qvb3hpa"]
 
-[ext_resource path="res://addons/godot-openxr/config/OpenXRConfig.gdns" type="Script" id=1]
-[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" type="PackedScene" id=2]
-[ext_resource path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" type="PackedScene" id=3]
-[ext_resource path="res://addons/godot-xr-tools/functions/movement_direct.tscn" type="PackedScene" id=4]
-[ext_resource path="res://addons/godot-xr-tools/functions/movement_turn.tscn" type="PackedScene" id=5]
-[ext_resource path="res://addons/godot-xr-tools/player/player_body.tscn" type="PackedScene" id=6]
-[ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=8]
-[ext_resource path="res://alice/player/Alice.gd" type="Script" id=9]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="8"]
+[ext_resource type="Script" path="res://alice/player/Alice.gd" id="9"]
 
-[sub_resource type="SphereShape" id=1]
+[sub_resource type="SphereShape3D" id="1"]
 radius = 0.1
 
-[node name="Player" type="ARVROrigin"]
+[node name="Player" type="XROrigin3D"]
 
-[node name="Configuration" type="Node" parent="."]
-script = ExtResource( 1 )
-color_space = 0
-refresh_rate = 0.0
-
-[node name="ARVRCamera" type="ARVRCamera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0 )
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 cull_mask = 524287
 fov = 65.0
 near = 0.01
 far = 40.0
 
-[node name="AreaDetect" type="Area" parent="ARVRCamera"]
+[node name="AreaDetect" type="Area3D" parent="XRCamera3D"]
 
-[node name="CollisionShape" type="CollisionShape" parent="ARVRCamera/AreaDetect"]
-shape = SubResource( 1 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XRCamera3D/AreaDetect"]
+shape = SubResource("1")
 
-[node name="LeftHandController" type="ARVRController" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5 )
+[node name="LeftHandController" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+pose = &"aim"
 
-[node name="LeftHand" parent="LeftHandController" instance=ExtResource( 3 )]
+[node name="LeftHand" parent="LeftHandController" instance=ExtResource("3")]
 
-[node name="Function_Direct_movement" parent="LeftHandController" instance=ExtResource( 4 )]
-enabled = true
-order = 10
+[node name="Function_Direct_movement" parent="LeftHandController" instance=ExtResource("4")]
 max_speed = 3.0
 strafe = true
 
-[node name="Function_Pickup" parent="LeftHandController" instance=ExtResource( 8 )]
+[node name="Function_Pickup" parent="LeftHandController" instance=ExtResource("8")]
 grab_collision_mask = 256
 ranged_distance = 1.0
 ranged_angle = 20.0
 ranged_collision_mask = 256
 
-[node name="RightHandController" type="ARVRController" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5 )
-controller_id = 2
+[node name="RightHandController" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+pose = &"aim"
 
-[node name="RightHand" parent="RightHandController" instance=ExtResource( 2 )]
+[node name="RightHand" parent="RightHandController" instance=ExtResource("2")]
 
-[node name="Function_Direct_movement" parent="RightHandController" instance=ExtResource( 4 )]
-enabled = true
-order = 10
+[node name="Function_Direct_movement" parent="RightHandController" instance=ExtResource("4")]
 max_speed = 3.0
-strafe = false
 
-[node name="Function_Turn_movement" parent="RightHandController" instance=ExtResource( 5 )]
+[node name="Function_Turn_movement" parent="RightHandController" instance=ExtResource("5")]
 
-[node name="Function_Pickup" parent="RightHandController" instance=ExtResource( 8 )]
+[node name="Function_Pickup" parent="RightHandController" instance=ExtResource("8")]
 grab_collision_mask = 256
 ranged_distance = 1.0
 ranged_angle = 20.0
 ranged_collision_mask = 256
 
-[node name="PlayerBody" parent="." instance=ExtResource( 6 )]
+[node name="PlayerBody" parent="." instance=ExtResource("6")]
 player_radius = 0.3
 collision_mask = 1
 
 [node name="Alice" type="Node" parent="."]
-script = ExtResource( 9 )
+script = ExtResource("9")
 
-[node name="Tween" type="Tween" parent="Alice"]
-playback_process_mode = 0
-
-[connection signal="area_entered" from="ARVRCamera/AreaDetect" to="Alice" method="_on_AreaDetect_area_entered"]
+[connection signal="area_entered" from="XRCamera3D/AreaDetect" to="Alice" method="_on_AreaDetect_area_entered"]
 [connection signal="has_picked_up" from="LeftHandController/Function_Pickup" to="Alice" method="_on_Function_Pickup_has_picked_up"]
 [connection signal="has_picked_up" from="RightHandController/Function_Pickup" to="Alice" method="_on_Function_Pickup_has_picked_up"]
-[connection signal="tween_all_completed" from="Alice/Tween" to="Alice" method="_on_size_completed"]

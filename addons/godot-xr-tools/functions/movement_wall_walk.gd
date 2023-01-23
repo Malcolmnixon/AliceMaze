@@ -1,20 +1,19 @@
-tool
+@tool
 class_name XRToolsMovementWallWalk
 extends XRToolsMovementProvider
 
 
 ## Wall walking provider order
-export var order : int = 25
+@export var order : int = 25
 
 ## Set our follow layer mask
-export (int, LAYERS_3D_PHYSICS) var follow_mask : int = 8
+@export_flags_3d_physics var follow_mask : int = 8
 
 ## Wall stick distance
-export var stick_distance : float = 1.0
+@export var stick_distance : float = 1.0
 
 ## Wall stick strength
-export var stick_strength : float = 9.8
-
+@export var stick_strength : float = 9.8
 
 
 func physics_pre_movement(_delta: float, player_body: XRToolsPlayerBody):
@@ -25,8 +24,8 @@ func physics_pre_movement(_delta: float, player_body: XRToolsPlayerBody):
 		return
 
 	# Get the wall information
-	var wall_node := wall_collision.collider
-	var wall_normal := wall_collision.normal
+	var wall_node := wall_collision.get_collider()
+	var wall_normal := wall_collision.get_normal()
 
 	# Skip if the wall node doesn't have a collision layer
 	if not "collision_layer" in wall_node:
