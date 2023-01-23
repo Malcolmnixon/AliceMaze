@@ -19,7 +19,11 @@ var _tween : Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var webxr_interface = XRServer.find_interface("WebXR")
+	if webxr_interface:
+		$"../LeftHandController/Function_Direct_movement".input_action = "thumbstick"
+		$"../RightHandController/Function_Direct_movement".input_action = "thumbstick"
+		$"../RightHandController/Function_Turn_movement".input_action = "thumbstick"
 
 
 func size_player(target: float):
